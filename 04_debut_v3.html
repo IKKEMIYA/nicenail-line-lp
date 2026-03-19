@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>店舗デビューまでの流れ | Nice Nail</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink:      #F05A8A;
+    --pink-dark: #D84070;
+    --pink-mid:  #F47AA0;
+    --pink-pale: #FFF0F5;
+    --pink-bg:   #FCE8EF;
+    --pink-row:  #FFF5F9;
+    --gold:      #C8963A;
+    --gold-light:#E8B860;
+    --text:      #3A1A28;
+    --mid:       #8A4A60;
+    --soft:      #C090A8;
+    --white:     #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--pink-pale);
+    color: var(--text);
+    max-width: 520px;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+
+  .site-header {
+    background: var(--pink); padding: 18px 24px; text-align: center;
+  }
+  .site-header .logo {
+    font-size: 11px; font-weight: 700;
+    color: rgba(255,255,255,0.8); letter-spacing: 3px;
+  }
+
+  .hero {
+    background: var(--white);
+    padding: 36px 28px 32px; text-align: center;
+    position: relative; overflow: hidden;
+    border-bottom: 3px solid var(--pink-pale);
+  }
+  .hero::before {
+    content: '';
+    position: absolute; left: 0; top: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--pink-dark) 0%, var(--pink) 50%, var(--pink-mid) 100%);
+  }
+  .hero-deco-left {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 64px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 300'%3E%3Cellipse cx='16' cy='60' rx='11' ry='26' fill='%23F9C8DC' opacity='0.5' transform='rotate(-20 16 60)'/%3E%3Cellipse cx='24' cy='140' rx='8' ry='20' fill='%23F4B0C8' opacity='0.4' transform='rotate(15 24 140)'/%3E%3Cellipse cx='12' cy='220' rx='10' ry='22' fill='%23F9C8DC' opacity='0.35' transform='rotate(-10 12 220)'/%3E%3C/svg%3E") no-repeat center/contain;
+    pointer-events: none;
+  }
+  .hero-deco-right {
+    position: absolute; right: 0; top: 0; bottom: 0; width: 64px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 300'%3E%3Cellipse cx='48' cy='70' rx='11' ry='26' fill='%23B8E0B0' opacity='0.35' transform='rotate(20 48 70)'/%3E%3Cellipse cx='40' cy='160' rx='8' ry='20' fill='%23B8E0B0' opacity='0.3' transform='rotate(-15 40 160)'/%3E%3Cellipse cx='52' cy='250' rx='10' ry='22' fill='%23B8E0B0' opacity='0.25' transform='rotate(10 52 250)'/%3E%3C/svg%3E") no-repeat center/contain;
+    pointer-events: none;
+  }
+  .hero-num {
+    display: inline-block; background: var(--pink); color: #fff;
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    padding: 4px 16px; border-radius: 20px; margin-bottom: 14px;
+  }
+  .hero-title {
+    font-size: 26px; font-weight: 900; color: var(--text);
+    letter-spacing: 3px; line-height: 1.3;
+  }
+  .hero-title .pink { color: var(--pink); }
+    display: inline-block;
+    background: var(--pink-dark); color: #fff;
+    font-size: 14px; font-weight: 900;
+    padding: 9px 24px; border-radius: 30px;
+    margin-top: 14px;
+    box-shadow: 0 4px 14px rgba(216,64,112,0.3);
+  }
+  .hero-highlight b { font-size: 20px; }
+  .hero-sub {
+    margin-top: 8px; font-family: 'Noto Serif JP', serif; font-weight: 400;
+    font-size: 13px; color: var(--mid); letter-spacing: 1px;
+  }
+
+  /* ── RIBBON ── */
+  .ribbon-wrap { display: flex; justify-content: center; margin: 32px 0 20px; }
+  .ribbon {
+    background: var(--pink); color: #fff;
+    font-size: 13px; font-weight: 900; letter-spacing: 2px;
+    padding: 10px 36px; position: relative; display: inline-block;
+  }
+  .ribbon::before {
+    content: ''; position: absolute; left: -14px; top: 0; bottom: 0;
+    border-style: solid; border-width: 20px 14px 20px 0;
+    border-color: transparent var(--pink) transparent transparent;
+  }
+  .ribbon::after {
+    content: ''; position: absolute; right: -14px; top: 0; bottom: 0;
+    border-style: solid; border-width: 20px 0 20px 14px;
+    border-color: transparent transparent transparent var(--pink);
+  }
+
+  .body { padding: 0 20px 48px; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 10px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 27px; top: 0; bottom: 80px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--pink) 0%, var(--pink-mid) 80%, transparent 100%);
+  }
+
+  .step { display: flex; gap: 14px; margin-bottom: 12px; }
+  .step-left { flex-shrink: 0; }
+  .step-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--pink-mid) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 900; color: #fff;
+    box-shadow: 0 3px 10px rgba(240,90,138,0.3);
+    position: relative; z-index: 1;
+  }
+  .step-num.gold-step {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    box-shadow: 0 3px 10px rgba(200,150,58,0.3);
+  }
+
+  .step-card {
+    background: var(--white); border-radius: 14px; padding: 14px 16px; flex: 1;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06); margin-bottom: 4px;
+    position: relative;
+  }
+  .step-card::before {
+    content: ''; position: absolute; left: -7px; top: 10px;
+    width: 13px; height: 13px;
+    background: var(--white); transform: rotate(45deg);
+    box-shadow: -1px 1px 4px rgba(0,0,0,0.05);
+  }
+  .step-card.final {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    box-shadow: 0 6px 20px rgba(200,150,58,0.25);
+  }
+  .step-card.final::before { background: var(--gold); }
+
+  .step-period {
+    display: inline-block;
+    background: var(--pink-bg); color: var(--pink-dark);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 3px 10px; border-radius: 20px; margin-bottom: 7px;
+  }
+  .step-period.gold-period { background: #FFF3E0; color: var(--gold); }
+
+  .step-title { font-size: 14px; font-weight: 900; color: var(--text); margin-bottom: 5px; }
+  .step-card.final .step-title { color: #fff; }
+
+  .step-desc { font-size: 11.5px; color: var(--mid); line-height: 1.7; }
+  .step-card.final .step-desc { color: rgba(255,255,255,0.9); }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .tag {
+    background: var(--pink-bg); color: var(--pink-dark);
+    font-size: 10.5px; font-weight: 500;
+    padding: 3px 9px; border-radius: 20px;
+  }
+
+  /* ── DEBUT BOX ── */
+  .debut-box {
+    background: var(--white); border-radius: 18px; padding: 28px 24px;
+    text-align: center; margin: 8px 0 14px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+    position: relative; overflow: hidden;
+  }
+  .debut-box::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--pink) 0%, var(--gold-light) 100%);
+  }
+  .debut-grad-title {
+    font-size: 13px; font-weight: 700; color: var(--gold);
+    letter-spacing: 3px; margin-bottom: 8px;
+  }
+  .debut-main { font-size: 26px; font-weight: 900; color: var(--pink-dark); margin-bottom: 10px; }
+  .debut-desc { font-size: 12px; color: var(--mid); line-height: 1.9; }
+  .debut-desc b { color: var(--pink); }
+
+  /* ── SCHOOL FEATURES ── */
+  .school-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .sc {
+    background: var(--white); border-radius: 12px; padding: 14px 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .sc-top { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+  .sc-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pink); flex-shrink: 0; }
+  .sc-name { font-size: 12px; font-weight: 900; color: var(--text); }
+  .sc-desc { font-size: 10.5px; color: var(--mid); line-height: 1.55; padding-left: 14px; }
+  .sc.wide { grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <div class="logo">NICE NAIL — RECRUITMENT GUIDE</div>
+</div>
+
+<div class="hero">
+  <div class="hero-deco-left"></div>
+  <div class="hero-deco-right"></div>
+  <div class="hero-title">店舗デビューまでの<span class="pink">流れ</span></div>
+  <div class="hero-highlight">最短 <b>2ヶ月</b> でネイリストデビュー！</div>
+  <div class="hero-sub">ネイル知識ゼロからスタートできます</div>
+
+
+
+<div class="body">
+
+  <!-- タイムライン -->
+  
+  <div class="ribbon-wrap"><div class="ribbon">プロデビューまでの道のり</div></div>
+
+  <div class="timeline">
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">1</div></div>
+      <div class="step-card">
+        <div class="step-period">入校初日</div>
+        <div class="step-title">ナイスネイルスクールに入校</div>
+        <div class="step-desc">
+          お爪の構造・道具の使い方など座学からスタート。ワンカラー・グラデーションを講師がレクチャー。チップを使った基礎練習でしっかり基礎固め。
+        </div>
+        <div class="tag-row">
+          <span class="tag">座学</span>
+          <span class="tag">基礎アート</span>
+          <span class="tag">チップ練習</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">2</div></div>
+      <div class="step-card">
+        <div class="step-period">入校初日〜5日以降</div>
+        <div class="step-title">モデル演習スタート</div>
+        <div class="step-desc">
+          生徒同士お互いの爪でワンカラー・グラデーションなど基本的なデザインの練習。定額コースのデザイン・パーツ付け・長さ出しなどオプション技術も習得。
+        </div>
+        <div class="tag-row">
+          <span class="tag">定額コース</span>
+          <span class="tag">パーツ付け</span>
+          <span class="tag">長さ出し</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">3</div></div>
+      <div class="step-card">
+        <div class="step-period">入校6〜30日以降</div>
+        <div class="step-title">スクール生サロン実習</div>
+        <div class="step-desc">
+          実際のお客様を担当するジュニアサロンへ。施術途中に講師のチェックがあり、安心してお客様対応ができます。施術時間・仕上がりに問題なければ次の課程へ。
+        </div>
+        <div class="tag-row">
+          <span class="tag">お客様対応</span>
+          <span class="tag">接客スキル</span>
+          <span class="tag">講師サポートあり</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">4</div></div>
+      <div class="step-card">
+        <div class="step-period">入校31日以降</div>
+        <div class="step-title">アート練習・技術向上</div>
+        <div class="step-desc">
+          ニュアンスネイル・マグネット・ミラーネイルなどトレンドのデザインを練習。デザイン名・工程を習得し、さらに幅広い技術を磨きます。
+        </div>
+        <div class="tag-row">
+          <span class="tag">応用アート</span>
+          <span class="tag">トレンドデザイン</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-num">5</div></div>
+      <div class="step-card">
+        <div class="step-period">入校40日目以降</div>
+        <div class="step-title">卒業テスト</div>
+        <div class="step-desc">
+          アートメニューをスクール生サロンでお客様に施術。講師が既定時間内に施術できること・仕上がりがお客様に提供できるレベルであることを確認し、合格すれば卒業。
+        </div>
+        <div class="tag-row">
+          <span class="tag">技術審査</span>
+          <span class="tag">合格で卒業</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-left"><div class="step-num gold-step">6</div></div>
+      <div class="step-card final">
+        <div class="step-period gold-period">スクール卒業後</div>
+        <div class="step-title">店舗配属・正社員スタート</div>
+        <div class="step-desc">
+          プロのネイリストとして店舗に配属。いよいよ本格的なキャリアのスタートです。一緒にナイスネイルを盛り上げましょう！
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 卒業・デビュー -->
+  <div class="debut-box">
+    <div class="debut-grad-title">— 卒業 —</div>
+    <div class="debut-main">無事ネイリストデビュー！！</div>
+    <div class="debut-desc">
+      ナイスネイルでは、完全未経験でご入社されたネイリストさんも多く在籍しております。<br>
+      しっかりとしたカリキュラム制度が整っているのはもちろん、<br>
+      未経験の方でも安心して働ける職場づくりを心掛けています。<br><br>
+      <b>最短2ヶ月でプロデビュー</b>できるので、<br>
+      すぐにネイリストになりたい方にもおすすめです。
+    </div>
+  </div>
+
+  <!-- スクールの特徴 -->
+  <div class="ribbon-wrap"><div class="ribbon">スクールの特徴</div></div>
+
+  <div class="school-grid">
+    <div class="sc">
+      <div class="sc-top"><div class="sc-dot"></div><div class="sc-name">サロンワーク特化</div></div>
+      <div class="sc-desc">現場で即使えるスキルを集中習得できる内容</div>
+    </div>
+    <div class="sc">
+      <div class="sc-top"><div class="sc-dot"></div><div class="sc-name">講師によるレクチャー</div></div>
+      <div class="sc-desc">丁寧な指導で安心してスタートできます</div>
+    </div>
+    <div class="sc">
+      <div class="sc-top"><div class="sc-dot"></div><div class="sc-name">検定資格が無料取得可</div></div>
+      <div class="sc-desc">ネイリスト検定3級・ジェル検定初級が無料</div>
+    </div>
+    <div class="sc">
+      <div class="sc-top"><div class="sc-dot"></div><div class="sc-name">受講費用・完全無料</div></div>
+      <div class="sc-desc">通常50万円相当のスクールが無料で受講できます</div>
+    </div>
+    <div class="sc wide">
+      <div class="sc-top"><div class="sc-dot"></div><div class="sc-name">日本ネイリスト協会認定スクール</div></div>
+      <div class="sc-desc">業界団体が認定した本格カリキュラムで高水準のスキルを身に付けられます</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="site-footer">NICE NAIL GROUP — RECRUITMENT GUIDE</div>
+
+</body>
+</html>

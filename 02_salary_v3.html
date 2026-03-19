@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>給与と福利厚生 | Nice Nail</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink:      #F05A8A;
+    --pink-dark: #D84070;
+    --pink-mid:  #F47AA0;
+    --pink-pale: #FFF0F5;
+    --pink-bg:   #FCE8EF;
+    --pink-row:  #FFF5F9;
+    --gold:      #C8963A;
+    --gold-light:#E8B860;
+    --text:      #3A1A28;
+    --mid:       #8A4A60;
+    --soft:      #C090A8;
+    --white:     #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--pink-pale);
+    color: var(--text);
+    max-width: 520px;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--pink);
+    padding: 18px 24px;
+    text-align: center;
+  }
+  .site-header .logo {
+    font-size: 11px; font-weight: 700;
+    color: rgba(255,255,255,0.8); letter-spacing: 3px;
+  }
+
+  .hero {
+    background: var(--white);
+    padding: 36px 28px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 3px solid var(--pink-pale);
+  }
+  .hero::before {
+    content: '';
+    position: absolute; left: 0; top: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--pink-dark) 0%, var(--pink) 50%, var(--pink-mid) 100%);
+  }
+  /* floral decoration sides */
+  .hero-deco-left {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 64px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 300'%3E%3Cellipse cx='16' cy='60' rx='11' ry='26' fill='%23F9C8DC' opacity='0.5' transform='rotate(-20 16 60)'/%3E%3Cellipse cx='24' cy='140' rx='8' ry='20' fill='%23F4B0C8' opacity='0.4' transform='rotate(15 24 140)'/%3E%3Cellipse cx='12' cy='220' rx='10' ry='22' fill='%23F9C8DC' opacity='0.35' transform='rotate(-10 12 220)'/%3E%3C/svg%3E") no-repeat center/contain;
+    pointer-events: none;
+  }
+  .hero-deco-right {
+    position: absolute; right: 0; top: 0; bottom: 0; width: 64px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 300'%3E%3Cellipse cx='48' cy='70' rx='11' ry='26' fill='%23B8E0B0' opacity='0.35' transform='rotate(20 48 70)'/%3E%3Cellipse cx='40' cy='160' rx='8' ry='20' fill='%23B8E0B0' opacity='0.3' transform='rotate(-15 40 160)'/%3E%3Cellipse cx='52' cy='250' rx='10' ry='22' fill='%23B8E0B0' opacity='0.25' transform='rotate(10 52 250)'/%3E%3C/svg%3E") no-repeat center/contain;
+    pointer-events: none;
+  }
+
+  .hero-num {
+    display: inline-block;
+    background: var(--pink);
+    color: #fff;
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    padding: 4px 16px; border-radius: 20px; margin-bottom: 14px;
+  }
+  .hero-title {
+    font-size: 30px; font-weight: 900;
+    color: var(--text);
+    letter-spacing: 3px; line-height: 1.25;
+  }
+  .hero-title .pink { color: var(--pink); }
+  .hero-sub {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 400;
+    font-size: 13px; color: var(--mid);
+    letter-spacing: 2px; margin-top: 8px;
+  }
+
+  /* ── RIBBON SECTION TITLE ── */
+  .ribbon-wrap {
+    display: flex; justify-content: center; align-items: center;
+    margin: 32px 0 20px;
+    position: relative;
+  }
+  .ribbon {
+    background: var(--pink);
+    color: #fff;
+    font-size: 13px; font-weight: 900; letter-spacing: 2px;
+    padding: 10px 36px;
+    position: relative;
+    display: inline-block;
+  }
+  .ribbon::before, .ribbon::after {
+    content: '';
+    position: absolute; top: 0; bottom: 0;
+    width: 0;
+    border-style: solid;
+  }
+  .ribbon::before {
+    left: -14px;
+    border-width: 20px 14px 20px 0;
+    border-color: transparent var(--pink) transparent transparent;
+  }
+  .ribbon::after {
+    right: -14px;
+    border-width: 20px 0 20px 14px;
+    border-color: transparent transparent transparent var(--pink);
+  }
+
+  /* ── BODY ── */
+  .body { padding: 0 20px 48px; }
+
+  /* ── SALARY STACK ── */
+  .salary-stack {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .si {
+    background: var(--white);
+    border-radius: 12px;
+    display: flex; align-items: center;
+    padding: 14px 16px; gap: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--pink);
+  }
+  .si-name {
+    font-size: 12px; font-weight: 900; color: var(--text);
+    width: 86px; flex-shrink: 0; line-height: 1.4;
+  }
+  .si-desc {
+    font-size: 11px; color: var(--mid); line-height: 1.55;
+  }
+  .si-em { font-weight: 900; color: var(--pink-dark); }
+  .c1{border-left-color:#A82858;} .c2{border-left-color:#BE3668;}
+  .c3{border-left-color:#CC4470;} .c4{border-left-color:#D85280;}
+  .c5{border-left-color:#E46090;} .c6{border-left-color:#EE72A0;}
+  .c7{border-left-color:#F48AB8;}
+
+  /* ── TOP EARNER ── */
+  .top-earner {
+    background: linear-gradient(135deg, var(--pink-dark) 0%, var(--gold) 100%);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 14px 0;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(240,90,138,0.2);
+  }
+  .te-main { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: 1px; }
+  .te-main span { font-size: 30px; }
+  .te-sub { font-size: 11px; color: rgba(255,255,255,0.85); margin-top: 4px; }
+
+  /* ── TABLE ── */
+  .table-box {
+    background: var(--white); border-radius: 16px; padding: 20px 16px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06); margin-bottom: 10px;
+  }
+  .table-ttl {
+    font-size: 13px; font-weight: 900; color: var(--pink); margin-bottom: 4px;
+  }
+  .table-note { font-size: 10.5px; color: var(--soft); margin-bottom: 14px; }
+  .area-check {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+  }
+  .area-check .dot {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--pink);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .area-check .dot::after {
+    content: '';
+    width: 8px; height: 5px;
+    border-left: 2px solid #fff; border-bottom: 2px solid #fff;
+    transform: rotate(-45deg) translateY(-1px);
+    display: block;
+  }
+  .area-check span { font-size: 12px; font-weight: 700; color: var(--text); }
+
+  table.mt { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 11px; border-radius: 10px; overflow: hidden; }
+  table.mt thead th {
+    background: var(--pink); color: #fff;
+    padding: 9px 6px; text-align: center;
+    font-weight: 700; font-size: 11px;
+  }
+  table.mt thead th:first-child { border-radius: 0; }
+  table.mt td {
+    padding: 9px 6px; text-align: center;
+    border-bottom: 1px solid #F8E0EC; color: var(--mid); font-size: 11px;
+    background: #fff;
+  }
+  table.mt tr:nth-child(even) td { background: var(--pink-row); }
+  table.mt tr:last-child td { border-bottom: none; }
+  table.mt td:first-child { font-weight: 700; color: var(--text); }
+  .total { color: var(--pink) !important; font-weight: 900 !important; font-size: 12px !important; }
+
+  /* ── POINT ITEMS ── */
+  .point-list { display: flex; flex-direction: column; gap: 12px; }
+  .point-item {
+    background: var(--white); border-radius: 14px; padding: 18px 16px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .point-badge {
+    flex-shrink: 0;
+    width: 46px; height: 46px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--pink-mid) 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 3px 10px rgba(240,90,138,0.3);
+  }
+  .point-badge .pb-label { font-size: 7px; font-weight: 700; color: rgba(255,255,255,0.85); letter-spacing: 1px; }
+  .point-badge .pb-num { font-size: 18px; font-weight: 900; color: #fff; line-height: 1; }
+  .point-text { flex: 1; }
+  .point-name {
+    font-size: 14px; font-weight: 900;
+    color: var(--pink); margin-bottom: 4px;
+  }
+  .point-desc { font-size: 11.5px; color: var(--mid); line-height: 1.7; }
+
+  /* ── BENEFITS GRID ── */
+  .benefits-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  }
+  .bc {
+    background: var(--white); border-radius: 12px; padding: 14px 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .bc-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .bc-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--pink); flex-shrink: 0;
+  }
+  .bc-name { font-size: 12px; font-weight: 900; color: var(--text); }
+  .bc-desc { font-size: 10.5px; color: var(--mid); line-height: 1.55; padding-left: 16px; }
+  .bc.wide { grid-column: 1 / -1; }
+  .bc.wide .bc-top { align-items: flex-start; }
+</style>
+</head>
+<body>
+
+<div class="site-header">
+  <div class="logo">NICE NAIL — RECRUITMENT GUIDE</div>
+</div>
+
+<div class="hero">
+  <div class="hero-deco-left"></div>
+  <div class="hero-deco-right"></div>
+  <div class="hero-title">給与と<span class="pink">福利厚生</span></div>
+  <div class="hero-sub">あなたの頑張りを、しっかり還元します</div>
+</div>
+
+
+
+<div class="body">
+
+  <!-- 給与の仕組み -->
+  <div class="ribbon-wrap"><div class="ribbon">給与の仕組み</div></div>
+
+  <div class="salary-stack">
+    <div class="si c1">
+      <div class="si-name">その他手当</div>
+      <div class="si-desc">物販手当・コンテスト上位入賞者へのお手当など</div>
+    </div>
+    <div class="si c2">
+      <div class="si-name">役職手当</div>
+      <div class="si-desc">店長など、役職に応じた手当を支給</div>
+    </div>
+    <div class="si c3">
+      <div class="si-name">勤続昇給手当</div>
+      <div class="si-desc">1年経過ごとに<span class="si-em">Max +10,000円/月</span>を支給</div>
+    </div>
+    <div class="si c4">
+      <div class="si-name">指名手当</div>
+      <div class="si-desc">指名ランクに応じて給与として全額還元</div>
+    </div>
+    <div class="si c5">
+      <div class="si-name">売上歩合給</div>
+      <div class="si-desc">月間個人売上に応じて還元。頑張るほどUP</div>
+    </div>
+    <div class="si c6">
+      <div class="si-name">売上達成手当</div>
+      <div class="si-desc">月間個人売上に応じた金額がプラス</div>
+    </div>
+    <div class="si c7">
+      <div class="si-name">基本給</div>
+      <div class="si-desc">勤務形態に合わせて設定。ライフワーク重視</div>
+    </div>
+  </div>
+
+  <div class="top-earner">
+    <div class="te-main">月収 <span>50万円</span> を超えている社員も！！</div>
+    <div class="te-sub">頑張りが給与に直結するシステムです</div>
+  </div>
+
+  <!-- 給与モデル -->
+  <div class="ribbon-wrap"><div class="ribbon">月収モデルご紹介</div></div>
+
+  <div class="table-box">
+    <div class="table-ttl">給与シミュレーション</div>
+    <div class="table-note">※一般社員 / 交通費別途支給（最大30,000円）</div>
+
+    <div class="area-check">
+      <div class="dot"></div>
+      <span>東海・関西・九州エリア 一般社員</span>
+    </div>
+    <table class="mt">
+      <thead><tr>
+        <th>勤続</th><th>基本給</th><th>勤続昇給</th><th>その他手当</th><th>総支給額</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>6ヶ月</td><td>232,584円</td><td>0円</td><td>11,000円</td><td class="total">243,584円</td></tr>
+        <tr><td>1年</td><td>243,585円</td><td>10,000円</td><td>20,750円</td><td class="total">274,335円</td></tr>
+        <tr><td>2年</td><td>243,585円</td><td>20,000円</td><td>46,878円</td><td class="total">310,463円</td></tr>
+        <tr><td>3年</td><td>243,585円</td><td>30,000円</td><td>67,878円</td><td class="total">341,463円</td></tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:18px;"></div>
+    <div class="area-check">
+      <div class="dot"></div>
+      <span>関東エリア 一般社員</span>
+    </div>
+    <table class="mt">
+      <thead><tr>
+        <th>勤続</th><th>基本給</th><th>勤続昇給</th><th>その他手当</th><th>総支給額</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>6ヶ月</td><td>217,002円</td><td>0円</td><td>11,000円</td><td class="total">228,002円</td></tr>
+        <tr><td>1年</td><td>243,872円</td><td>10,000円</td><td>20,750円</td><td class="total">274,622円</td></tr>
+        <tr><td>2年</td><td>243,872円</td><td>20,000円</td><td>46,878円</td><td class="total">310,750円</td></tr>
+        <tr><td>3年</td><td>243,872円</td><td>30,000円</td><td>67,878円</td><td class="total">341,750円</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5つのシステム -->
+  <div class="ribbon-wrap"><div class="ribbon">高給与を狙える5つのシステム</div></div>
+
+  <div class="point-list">
+    <div class="point-item">
+      <div class="point-badge"><div class="pb-label">POINT</div><div class="pb-num">1</div></div>
+      <div class="point-text">
+        <div class="point-name">売上歩合給</div>
+        <div class="point-desc">固定給の評価のみでなく、売り上げに応じた金額がプラスでお給料に還元されます。頑張れば頑張るほど、自身の給料UPにつながります。</div>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-badge"><div class="pb-label">POINT</div><div class="pb-num">2</div></div>
+      <div class="point-text">
+        <div class="point-name">売上達成手当</div>
+        <div class="point-desc">月間個人売上に応じて別途お給料に還元されます。70万以上で5,000円、80万以上で15,000円支給。</div>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-badge"><div class="pb-label">POINT</div><div class="pb-num">3</div></div>
+      <div class="point-text">
+        <div class="point-name">指名手当</div>
+        <div class="point-desc">指名料は全額給与として還元。さらに指名人数に応じてランクが上がり、ランクに応じて別途還元されます。</div>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-badge"><div class="pb-label">POINT</div><div class="pb-num">4</div></div>
+      <div class="point-text">
+        <div class="point-name">能力給</div>
+        <div class="point-desc">指名があり、売上が上がれば上がるほど能力が評価され、2,000円〜30,000円以上の手当が付きます。入社間もない方にも還元される制度です。</div>
+      </div>
+    </div>
+    <div class="point-item">
+      <div class="point-badge"><div class="pb-label">POINT</div><div class="pb-num">5</div></div>
+      <div class="point-text">
+        <div class="point-name">物販手当</div>
+        <div class="point-desc">物販売上の5%＋月間売上に応じた手当が支給されます。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 福利厚生 -->
+  
+  <div class="ribbon-wrap"><div class="ribbon">充実の福利厚生</div></div>
+
+  <div class="benefits-grid">
+    <div class="bc">
+      <div class="bc-top"><div class="bc-dot"></div><div class="bc-name">社会保険完備</div></div>
+      <div class="bc-desc">健康保険・厚生年金・労災・雇用保険を入社日から全加入</div>
+    </div>
+    <div class="bc">
+      <div class="bc-top"><div class="bc-dot"></div><div class="bc-name">交通費支給</div></div>
+      <div class="bc-desc">最大30,000円まで全額支給</div>
+    </div>
+    <div class="bc">
+      <div class="bc-top"><div class="bc-dot"></div><div class="bc-name">賞与あり</div></div>
+      <div class="bc-desc">日々の頑張りをしっかり還元（勤務条件による）</div>
+    </div>
+    <div class="bc">
+      <div class="bc-top"><div class="bc-dot"></div><div class="bc-name">有給100%消化</div></div>
+      <div class="bc-desc">メリハリある働き方ができる環境</div>
+    </div>
+    <div class="bc">
+      <div class="bc-top"><div class="bc-dot"></div><div class="bc-name">産休・育休制度</div></div>
+      <div class="bc-desc">取得実績多数。ママさんネイリストも在籍</div>
+    </div>
+    <div class="bc">
+      <div class="bc-top"><div class="bc-dot"></div><div class="bc-name">社内販売割引</div></div>
+      <div class="bc-desc">ネイル道具や基礎化粧品をお得に購入</div>
+    </div>
+    <div class="bc">
+      <div class="bc-top"><div class="bc-dot"></div><div class="bc-name">手当付き研修</div></div>
+      <div class="bc-desc">働きながら学べる技術研修制度</div>
+    </div>
+    <div class="bc">
+      <div class="bc-top"><div class="bc-dot"></div><div class="bc-name">年1回健康診断</div></div>
+      <div class="bc-desc">スタッフの健康をしっかりサポート</div>
+    </div>
+    <div class="bc wide">
+      <div class="bc-top"><div class="bc-dot"></div><div class="bc-name">髪型・髪色自由（ハイトーンOK）</div></div>
+      <div class="bc-desc">おしゃれを楽しみながら働ける職場環境です</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="site-footer">NICE NAIL GROUP — RECRUITMENT GUIDE</div>
+
+</body>
+</html>
