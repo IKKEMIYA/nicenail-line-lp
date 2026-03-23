@@ -124,30 +124,64 @@
   /* ── BODY ── */
   .body { padding: 0 20px 48px; }
 
-  /* ── SALARY STACK ── */
-  .salary-stack {
-    display: flex; flex-direction: column; gap: 8px;
-  }
-  .si {
+  /* ── SALARY TOWER ── */
+  .salary-tower {
     background: var(--white);
-    border-radius: 12px;
+    border-radius: 18px;
+    padding: 24px 16px 20px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  }
+  .tower-label {
+    text-align: center;
+    font-size: 11px; font-weight: 700; color: var(--soft);
+    letter-spacing: 2px; margin-bottom: 16px;
+  }
+  .tower-blocks {
+    display: flex; flex-direction: column;
+  }
+  .tb {
     display: flex; align-items: center;
-    padding: 14px 16px; gap: 14px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    border-left: 5px solid var(--pink);
+    padding: 13px 14px; gap: 12px;
+    background: var(--white);
   }
-  .si-name {
+  .tb + .tb { border-top: 1px solid var(--pink-row); }
+  .tb-bar {
+    width: 5px; align-self: stretch; border-radius: 3px; flex-shrink: 0;
+  }
+  .tb-name {
     font-size: 12px; font-weight: 900; color: var(--text);
-    width: 86px; flex-shrink: 0; line-height: 1.4;
+    width: 90px; flex-shrink: 0; line-height: 1.3;
   }
-  .si-desc {
-    font-size: 11px; color: var(--mid); line-height: 1.55;
+  .tb-desc {
+    font-size: 10.5px; color: var(--mid); line-height: 1.55;
   }
-  .si-em { font-weight: 900; color: var(--pink-dark); }
-  .c1{border-left-color:#A82858;} .c2{border-left-color:#BE3668;}
-  .c3{border-left-color:#CC4470;} .c4{border-left-color:#D85280;}
-  .c5{border-left-color:#E46090;} .c6{border-left-color:#EE72A0;}
-  .c7{border-left-color:#F48AB8;}
+  .tb-em { font-weight: 900; color: var(--pink-dark); }
+  .tb.t1 .tb-bar { background: #F49AB8; }
+  .tb.t2 .tb-bar { background: #EE82A8; }
+  .tb.t3 .tb-bar { background: #E46898; }
+  .tb.t4 .tb-bar { background: #D85288; }
+  .tb.t5 .tb-bar { background: #CC3C78; }
+  .tb.t6 .tb-bar { background: #BE2E68; }
+  .tb.t1 { border-radius: 10px 10px 0 0; }
+  .tb.base {
+    background: var(--pink-pale);
+    border-radius: 0 0 10px 10px;
+    padding: 16px 14px;
+    border-top: 2px solid var(--pink);
+  }
+  .tb.base .tb-bar { background: linear-gradient(180deg, #A82858, #8E1E48); width: 6px; }
+  .tb.base .tb-name { font-size: 14px; color: var(--pink-dark); }
+  .tb.base .tb-desc { font-size: 11.5px; }
+  .tower-arrow {
+    text-align: center; margin: 10px 0 4px;
+    font-size: 11px; font-weight: 700; color: var(--pink);
+    letter-spacing: 1px;
+  }
+  .tower-arrow::before {
+    content: '▲'; display: block;
+    font-size: 18px; color: var(--pink-mid);
+    margin-bottom: 2px;
+  }
 
   /* ── TOP EARNER ── */
   .top-earner {
@@ -246,6 +280,16 @@
   .bc-desc { font-size: 10.5px; color: var(--mid); line-height: 1.55; padding-left: 16px; }
   .bc.wide { grid-column: 1 / -1; }
   .bc.wide .bc-top { align-items: flex-start; }
+
+  /* ── STAFF BANNER ── */
+  .staff-banner {
+    width: 100%; margin: 24px 0;
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .staff-banner img {
+    width: 100%; height: auto; display: block;
+  }
 </style>
 </head>
 <body>
@@ -268,41 +312,54 @@
   <!-- 給与の仕組み -->
   <div class="ribbon-wrap"><div class="ribbon">給与の仕組み</div></div>
 
-  <div class="salary-stack">
-    <div class="si c1">
-      <div class="si-name">その他手当</div>
-      <div class="si-desc">物販手当・コンテスト上位入賞者へのお手当など</div>
+  <div class="salary-tower">
+    <div class="tower-label">▼ 給与の積み上げイメージ ▼</div>
+    <div class="tower-blocks">
+      <div class="tb t1">
+        <div class="tb-bar"></div>
+        <div class="tb-name">その他手当</div>
+        <div class="tb-desc">物販手当・コンテスト上位入賞者へのお手当など</div>
+      </div>
+      <div class="tb t2">
+        <div class="tb-bar"></div>
+        <div class="tb-name">役職手当</div>
+        <div class="tb-desc">店長など、役職に応じた手当を支給</div>
+      </div>
+      <div class="tb t3">
+        <div class="tb-bar"></div>
+        <div class="tb-name">勤続昇給手当</div>
+        <div class="tb-desc">1年経過ごとに<span class="tb-em">Max +10,000円/月</span>を支給</div>
+      </div>
+      <div class="tb t4">
+        <div class="tb-bar"></div>
+        <div class="tb-name">指名手当</div>
+        <div class="tb-desc">指名ランクに応じて給与として全額還元</div>
+      </div>
+      <div class="tb t5">
+        <div class="tb-bar"></div>
+        <div class="tb-name">売上歩合給</div>
+        <div class="tb-desc">月間個人売上に応じて還元。頑張るほどUP</div>
+      </div>
+      <div class="tb t6">
+        <div class="tb-bar"></div>
+        <div class="tb-name">売上達成手当</div>
+        <div class="tb-desc">月間個人売上に応じた金額がプラス</div>
+      </div>
+      <div class="tb base">
+        <div class="tb-bar"></div>
+        <div class="tb-name">基本給</div>
+        <div class="tb-desc">勤務形態に合わせて設定。すべての土台となる安定収入</div>
+      </div>
     </div>
-    <div class="si c2">
-      <div class="si-name">役職手当</div>
-      <div class="si-desc">店長など、役職に応じた手当を支給</div>
-    </div>
-    <div class="si c3">
-      <div class="si-name">勤続昇給手当</div>
-      <div class="si-desc">1年経過ごとに<span class="si-em">Max +10,000円/月</span>を支給</div>
-    </div>
-    <div class="si c4">
-      <div class="si-name">指名手当</div>
-      <div class="si-desc">指名ランクに応じて給与として全額還元</div>
-    </div>
-    <div class="si c5">
-      <div class="si-name">売上歩合給</div>
-      <div class="si-desc">月間個人売上に応じて還元。頑張るほどUP</div>
-    </div>
-    <div class="si c6">
-      <div class="si-name">売上達成手当</div>
-      <div class="si-desc">月間個人売上に応じた金額がプラス</div>
-    </div>
-    <div class="si c7">
-      <div class="si-name">基本給</div>
-      <div class="si-desc">勤務形態に合わせて設定。ライフワーク重視</div>
-    </div>
+    <div class="tower-arrow">頑張るほど積み上がる！</div>
   </div>
 
   <div class="top-earner">
     <div class="te-main">月収 <span>50万円</span> を超えている社員も！！</div>
     <div class="te-sub">頑張りが給与に直結するシステムです</div>
   </div>
+
+  <div class="staff-banner"><img src="img/salary_top.jpg" alt="ナイスネイル スタッフ写真" loading="lazy"></div>
 
   <!-- 給与モデル -->
   <div class="ribbon-wrap"><div class="ribbon">月収モデルご紹介</div></div>
@@ -386,8 +443,9 @@
     </div>
   </div>
 
+  <div class="staff-banner"><img src="img/salary_bottom.jpg" alt="ナイスネイル スタッフ写真" loading="lazy"></div>
+
   <!-- 福利厚生 -->
-  
   <div class="ribbon-wrap"><div class="ribbon">充実の福利厚生</div></div>
 
   <div class="benefits-grid">
